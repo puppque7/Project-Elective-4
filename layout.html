@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <style>
+    a{
+      color:white;
+      font-size: 30px;
+      padding: 10px;
+      font-family:"Century Gothic";
+    }
+    body{
+    padding: 0px;
+    margin: 0px;
+    background-color: #f59db6;
+    color:white;
+	}
+      input[type=text], input[type=password]{
+      width:30%;
+      padding:5px;
+      margin:1;
+      border:2px solid #ccc;
+      border-color: white;
+      padding-left:5px;
+      font-size:16px;
+      font-family:"Century Gothic";
+      }
+      input[type=submit],input[type=reset],input[type=button]{
+      width:10%;
+      background-color:#89cff0;
+      color:white;
+      margin-left: 73px;
+      border:2px solid white;
+      padding:10px;
+      font-size:15px;
+      cursor:pointer;
+      border-radius:10px;
+      margin-top:30px;
+      transition: 1.5s ease-out .2s;
+      }
+
+      span{
+      	color:black;
+      }
+      h1{
+      	  color:pink;
+          background-color:#f59db6;
+          height: 40px;
+          padding: 20px;
+          font-size: 75px;
+      }
+      span{
+      	color:pink;
+      }
+      h1,td,h2{
+      	color:pink;
+      }
+
+    </style>
+    <meta charset="utf-8">
+    <title>Home</title>
+  </head>
+  <body>
+    {% block content %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+            {{ message }}
+
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    {% endblock content %}
+  </body>
+</html>

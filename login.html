@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block content %}
+
+      <form method="POST" action="">
+
+          {{ form.hidden_tag() }}
+          <fieldset>
+            <center>
+              <legend>Login</legend>
+              <br>
+              <br>
+
+              {{ form.username.label }}
+              {% if form.username.errors %}
+              {{ form.username }}
+
+              {% for error in form.username.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+
+              {% else %}
+              {{ form.username }}
+              {% endif %}
+
+              <br>
+              <br>
+              {{ form.password.label }}
+              {% if form.password.errors %}
+              {{ form.password }}
+
+              {% for error in form.password.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+
+              {% else %}
+              {{ form.password }}
+              {% endif %}
+
+              <br>
+              <br>
+              {{ form.submit }}
+
+
+          </fieldset>
+          </center>
+
+      </form>
+      <center>  {{ form.home }} </center>
+      <br>
+      <a style="margin-left: 1200px;" href="{{ url_for('home') }}">Home</a>
+{% endblock content %}

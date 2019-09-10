@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+{% block content %}
+
+      <form method="POST" action="{{ url_for('register') }}">
+          {{ form.hidden_tag() }}
+
+          <fieldset>
+          <legend>Registration Form</legend>
+          <br>
+          <br>
+
+          {{ form.username.label }}
+          <br>
+          {% if form.username.errors %}
+          {{ form.username }}
+
+          <br>
+
+          {% for error in form.username.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+
+          {% else %}
+          {{ form.username }}
+          {% endif %}
+
+          <br>
+          <br>
+          {{ form.email.label }}
+          <br>
+          {% if form.email.errors %}
+          {{ form.email }}
+
+          <br>
+
+          {% for error in form.email.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+
+          {% else %}
+          {{ form.email}}
+          {% endif %}
+
+          <br>
+          <br>
+          {{ form.password.label }}
+          <br>
+          {% if form.password.errors %}
+          {{ form.password }}
+          <br>
+
+          {% for error in form.password.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+
+          {% else %}
+          {{ form.password }}
+          {% endif %}
+
+          <br>
+          <br>
+          {{ form.confirm_password.label }}
+          <br>
+          {% if form.confirm_password.errors %}
+          {{ form.confirm_password }}
+          <br>
+
+          {% for error in form.confirm_password.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+
+          {% else %}
+          {{ form.confirm_password }}
+          {% endif %}
+
+          <br>
+          {{ form.submit }}
+
+          </fieldset>
+
+
+
+      </form>
+      <a style="margin-left: 1px;" href="{{ url_for('home') }}">Home</a>
+  {% endblock content %}
